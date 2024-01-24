@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using App;
+using Infrastructure;
+using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 
 namespace Desktop
@@ -14,6 +16,9 @@ namespace Desktop
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
+
+            builder.Services.AddApp(builder.Configuration);
+            builder.Services.AddInfrastructure(builder.Configuration);
 
             builder.Services.AddMauiBlazorWebView();
 

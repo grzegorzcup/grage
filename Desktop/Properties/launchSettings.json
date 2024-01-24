@@ -4,5 +4,8 @@
       "commandName": "MsixPackage",
       "nativeDebugging": false
     }
+  },
+  "ConnectionStrings": {
+    "GarageTest": "Host=localhost;Port=5432;Database=GarageTest;Username=postgres;Password=postgres;Pooling=true;"
   }
 }

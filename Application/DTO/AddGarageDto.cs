@@ -1,29 +1,29 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using App.Middleware;
+using AutoMapper;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace App.DTO
 {
-    public class Garage
+    public class AddGarageDto : IMap
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public bool IsDeleted { get; set; } = false;
         [Required]
         public string Name { get; set; }
         [Required]
         public decimal Width { get; set; }
         [Required]
-        public decimal Height { get;set; }
+        public decimal Height { get; set; }
         [Required]
         public decimal Length { get; set; }
-       
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<AddGarageDto, Garage>();
+        }
     }
 }
